@@ -1,117 +1,136 @@
-/* Reset y estilos básicos */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* =========================
+   Reset y estilos básicos
+   ========================= */
+   *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
   }
   
-  body {
-    font-family: 'Montserrat', sans-serif; /* Fuente profesional */
-    background-color: #3C1361; /* Morado Oscuro */
-    color: #FFFFFF; /* Blanco */
-    line-height: 1.6;
+  body{
+    font-family:'Montserrat',sans-serif;      /* Fuente profesional */
+    background-color:#3C1361;                /* Morado oscuro */
+    color:#FFFFFF;                           /* Blanco */
+    line-height:1.6;
   }
   
-  /* Para que todos los textos sean más visibles en fondos oscuros */
-  h1, h2, h3, p, a, li, span, div, .card-text {
-    color: #FFFFFF;
+  /* textos claros sobre fondo oscuro */
+  h1,h2,h3,p,a,li,span,div,.card-text{
+    color:#FFFFFF;
   }
   
-  /* Hero Section */
-  .hero {
-    position: relative;
-    background-size: cover;
-    background-position: center;
-    height: 80vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  /* =========================
+     Hero Section
+     ========================= */
+  .hero{
+    position:relative;
+    background-size:cover;
+    background-position:center;
+    height:80vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
   }
   
-  .hero .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(60, 19, 97, 0.8); /* Morado Oscuro semitransparente */
+  .hero .overlay{
+    position:absolute;
+    inset:0;
+    background-color:rgba(60,19,97,0.8);     /* Morado semitransparente */
   }
   
-  .hero .container {
-    position: relative;
-    z-index: 2;
+  .hero .container{
+    position:relative;
+    z-index:2;
   }
   
-  /* Botón con gradiente */
-  .btn-primary {
-    background: linear-gradient(90deg, #FF5FD9, #FF8A00, #9B25FF);
-    border: none;
+  /* Botón gradiente */
+  .btn-primary{
+    background:linear-gradient(90deg,#FF5FD9,#FF8A00,#9B25FF);
+    border:none;
+  }
+  .btn-primary:hover{opacity:0.8;}
+  
+  /* =========================
+     Sección de Servicios
+     ========================= */
+  .servicios h2{
+    margin-bottom:40px;
   }
   
-  .btn-primary:hover {
-    opacity: 0.8;
+  /* --- contenedor del canvas --- */
+  .model-container{
+    width:100%;
+    height:220px;                 /* mismo alto para todos */
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-inline:auto;
+    pointer-events:none;          /* desactiva interacción */
   }
   
-  /* Sección de Servicios */
-  /* Sección de Servicios */
-.servicios h2 {
-    color: #FFFFFF; /* Título principal en blanco */
-    margin-bottom: 40px;
+  /* --- tarjeta --- */
+  .card.bg-transparent{
+    background-color:rgba(255,255,255,0.1);
+    border-radius:10px;
+    transition:background-color .3s;
+  }
+  .card.bg-transparent:hover{
+    background-color:rgba(255,255,255,0.2);
   }
   
-  /* Tarjetas de Servicios */
-/* Tarjetas de Servicios - Títulos */
-.servicios .card-title {
-    color: #FFFFFF;           /* Texto blanco */
-    font-weight: bold;        /* Texto en bold */
-    font-size: 200%;          /* 20% más grande */
+  /* --- cuerpo de la tarjeta: flex column --- */
+  .servicios .card-body{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:1rem;                     /* separación uniforme */
+    padding:1.5rem;
   }
   
-  .servicios .card-text {
-    color: #FFFFFF; /* Texto blanco */
+  /* --- títulos y texto --- */
+  .servicios .card-title{
+    font-weight:bold;
+    font-size:200%;               /* +100 % respecto a base */
+    text-align:center;
+    color: white;
+  }
+  .servicios .card-text{
+    text-align:center;
+  }
+
+  .servicios .row{
+    /* El row ya lleva justify-content-center vía HTML,
+       aquí añadimos un pequeño margen horizontal si lo deseas */
+    margin-inline:auto;
   }
   
-  .card.bg-transparent {
-    background-color: rgba(255, 255, 255, 0.1); /* Fondo semitransparente */
-    border-radius: 10px;
-    transition: background-color 0.3s;
+  /* canvas individual si necesitas ajustes puntuales */
+  #vr-model-container,
+  #brain-model-container,
+  #game-model-container{
+    background-color:transparent;
   }
   
-  .card.bg-transparent:hover {
-    background-color: rgba(255, 255, 255, 0.2);
+  /* =========================
+     Destacado: Aros 3D
+     ========================= */
+  .destacado{background-color:#3C1361;}
+  .gradient-ring img{
+    width:200px;
+    height:auto;
+    filter:drop-shadow(0 0 10px rgba(255,90,217,0.7));
   }
   
-  #vr-model-container {
-    background-color: transparent; /* O ningún color */
-  }
-   
-  /* Destacado: Aros 3D con Gradiente */
-  .destacado {
-    background-color: #3C1361;
-  }
-  
-  .gradient-ring img {
-    width: 200px;
-    height: auto;
-    filter: drop-shadow(0 0 10px rgba(255, 90, 217, 0.7));
-  }
-  
-  /* Sección de Contacto */
-  .contacto {
-    background-color: #3C1361;
-  }
-  
-  .contacto form {
-    color: #000000; /* Mantén los inputs con texto oscuro para mejor legibilidad */
-  }
-  
+  /* =========================
+     Sección de Contacto
+     ========================= */
+  .contacto{background-color:#3C1361;}
+  .contacto form{color:#000;}            /* inputs oscuros para legibilidad */
   .contacto input,
-  .contacto textarea {
-    border-radius: 5px;
-  }
+  .contacto textarea{border-radius:5px;}
   
-  /* Footer */
-  .footer {
-    font-size: 0.9rem;
-  }
+  /* =========================
+     Footer
+     ========================= */
+  .footer{font-size:.9rem;}
   
